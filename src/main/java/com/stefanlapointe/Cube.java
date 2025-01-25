@@ -446,4 +446,74 @@ public class Cube {
         return this;
     }
 
+    /*
+    The heuristic I came up with for this
+    is the number of pairs of pieces
+    that are matched up with each other.
+     */
+    int score() {
+        int total = 0;
+        // back-bottom edge and neighbours
+        if (back[7] == back[4]) total++;
+        if (bottom[7] == bottom[4]) total++;
+        if (back[7] == back[8] && bottom[7] == bottom[6]) total++;
+        if (back[7] == back[6] && bottom[7] == bottom[8]) total++;
+        // back-left edge and neighbours
+        if (back[5] == back[4]) total++;
+        if (left[3] == left[4]) total++;
+        if (back[5] == back[8] && left[3] == left[6]) total++;
+        if (back[5] == back[2] && left[3] == left[0]) total++;
+        // back-right edge and neighbours
+        if (back[3] == back[4]) total++;
+        if (right[5] == right[4]) total++;
+        if (back[3] == back[6] && right[5] == right[8]) total++;
+        if (back[3] == back[0] && right[5] == right[2]) total++;
+        // back-top edge and neighbours
+        if (back[1] == back[4]) total++;
+        if (top[1] == top[4]) total++;
+        if (back[1] == back[2] && top[1] == top[0]) total++;
+        if (back[1] == back[0] && top[1] == top[2]) total++;
+        // bottom-front edge and neighbours
+        if (bottom[1] == bottom[4]) total++;
+        if (front[7] == front[4]) total++;
+        if (bottom[1] == bottom[0] && front[7] == front[6]) total++;
+        if (bottom[1] == bottom[2] && front[7] == front[8]) total++;
+        // bottom-left edge and neighbours
+        if (bottom[3] == bottom[4]) total++;
+        if (left[7] == left[4]) total++;
+        if (bottom[3] == bottom[6] && left[7] == left[6]) total++;
+        if (bottom[3] == bottom[0] && left[7] == left[8]) total++;
+        // bottom-right edge and neighbours
+        if (bottom[5] == bottom[4]) total++;
+        if (right[7] == right[4]) total++;
+        if (bottom[5] == bottom[8] && right[7] == right[8]) total++;
+        if (bottom[5] == bottom[2] && right[7] == right[6]) total++;
+        // front-left edge and neighbours
+        if (front[3] == front[4]) total++;
+        if (left[5] == left[4]) total++;
+        if (front[3] == front[6] && left[5] == left[8]) total++;
+        if (front[3] == front[0] && left[5] == left[2]) total++;
+        // front-right edge and neighbours
+        if (front[5] == front[4]) total++;
+        if (right[3] == right[4]) total++;
+        if (front[5] == front[8] && right[3] == right[6]) total++;
+        if (front[5] == front[2] && right[3] == right[0]) total++;
+        // front-top edge and neighbours
+        if (front[1] == front[4]) total++;
+        if (top[7] == top[4]) total++;
+        if (front[1] == front[0] && top[7] == top[6]) total++;
+        if (front[1] == front[2] && top[7] == top[8]) total++;
+        // left-top edge and neighbours
+        if (left[1] == left[4]) total++;
+        if (top[3] == top[4]) total++;
+        if (left[1] == left[0] && top[3] == top[0]) total++;
+        if (left[1] == left[2] && top[3] == top[6]) total++;
+        // right-top edge and neighbours
+        if (right[1] == right[4]) total++;
+        if (top[5] == top[4]) total++;
+        if (right[1] == right[2] && top[5] == top[2]) total++;
+        if (right[1] == right[0] && top[5] == top[8]) total++;
+        return total;
+    }
+
 }
