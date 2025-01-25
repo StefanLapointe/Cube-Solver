@@ -98,4 +98,352 @@ public class Cube {
         return sb.toString();
     }
 
+    public Cube turnBackClockwise() {
+        Sticker temp = back[1];
+        back[1] = back[3];
+        back[3] = back[7];
+        back[7] = back[5];
+        back[5] = temp;
+        temp = back[0];
+        back[0] = back[6];
+        back[6] = back[8];
+        back[8] = back[2];
+        back[2] = temp;
+        temp = bottom[6];
+        bottom[6] = left[0];
+        left[0] = top[2];
+        top[2] = right[8];
+        right[8] = temp;
+        temp = bottom[7];
+        bottom[7] = left[3];
+        left[3] = top[1];
+        top[1] = right[5];
+        right[5] = temp;
+        temp = bottom[8];
+        bottom[8] = left[6];
+        left[6] = top[0];
+        top[0] = right[2];
+        right[2] = temp;
+        return this;
+    }
+
+    public Cube turnBackReverse() {
+        Sticker temp = back[1];
+        back[1] = back[5];
+        back[5] = back[7];
+        back[7] = back[3];
+        back[3] = temp;
+        temp = back[0];
+        back[0] = back[2];
+        back[2] = back[8];
+        back[8] = back[6];
+        back[6] = temp;
+        temp = bottom[6];
+        bottom[6] = right[8];
+        right[8] = top[2];
+        top[2] = left[0];
+        left[0] = temp;
+        temp = bottom[7];
+        bottom[7] = right[5];
+        right[5] = top[1];
+        top[1] = left[3];
+        left[3] = temp;
+        temp = bottom[8];
+        bottom[8] = right[2];
+        right[2] = top[0];
+        top[0] = left[6];
+        left[6] = temp;
+        return this;
+    }
+
+    public Cube turnBottomClockwise() {
+        Sticker temp = bottom[1];
+        bottom[1] = bottom[3];
+        bottom[3] = bottom[7];
+        bottom[7] = bottom[5];
+        bottom[5] = temp;
+        temp = bottom[0];
+        bottom[0] = bottom[6];
+        bottom[6] = bottom[8];
+        bottom[8] = bottom[2];
+        bottom[2] = temp;
+        temp = back[6];
+        back[6] = right[6];
+        right[6] = front[6];
+        front[6] = left[6];
+        left[6] = temp;
+        temp = back[7];
+        back[7] = right[7];
+        right[7] = front[7];
+        front[7] = left[7];
+        left[7] = temp;
+        temp = back[8];
+        back[8] = right[8];
+        right[8] = front[8];
+        front[8] = left[8];
+        left[8] = temp;
+        return this;
+    }
+
+    public Cube turnBottomReverse() {
+        Sticker temp = bottom[1];
+        bottom[1] = bottom[5];
+        bottom[5] = bottom[7];
+        bottom[7] = bottom[3];
+        bottom[3] = temp;
+        temp = bottom[0];
+        bottom[0] = bottom[2];
+        bottom[2] = bottom[8];
+        bottom[8] = bottom[6];
+        bottom[6] = temp;
+        temp = back[6];
+        back[6] = left[6];
+        left[6] = front[6];
+        front[6] = right[6];
+        right[6] = temp;
+        temp = back[7];
+        back[7] = left[7];
+        left[7] = front[7];
+        front[7] = right[7];
+        right[7] = temp;
+        temp = back[8];
+        back[8] = left[8];
+        left[8] = front[8];
+        front[8] = right[8];
+        right[8] = temp;
+        return this;
+    }
+
+    public Cube turnFrontClockwise() {
+        Sticker temp = front[1];
+        front[1] = front[3];
+        front[3] = front[7];
+        front[7] = front[5];
+        front[5] = temp;
+        temp = front[0];
+        front[0] = front[6];
+        front[6] = front[8];
+        front[8] = front[2];
+        front[2] = temp;
+        temp = bottom[0];
+        bottom[0] = right[6];
+        right[6] = top[8];
+        top[8] = left[2];
+        left[2] = temp;
+        temp = bottom[1];
+        bottom[1] = right[3];
+        right[3] = top[7];
+        top[7] = left[5];
+        left[5] = temp;
+        temp = bottom[2];
+        bottom[2] = right[0];
+        right[0] = top[6];
+        top[6] = left[8];
+        left[8] = temp;
+        return this;
+    }
+
+    public Cube turnFrontReverse() {
+        Sticker temp = front[1];
+        front[1] = front[5];
+        front[5] = front[7];
+        front[7] = front[3];
+        front[3] = temp;
+        temp = front[0];
+        front[0] = front[2];
+        front[2] = front[8];
+        front[8] = front[6];
+        front[6] = temp;
+        temp = bottom[0];
+        bottom[0] = left[2];
+        left[2] = top[8];
+        top[8] = right[6];
+        right[6] = temp;
+        temp = bottom[1];
+        bottom[1] = left[5];
+        left[5] = top[7];
+        top[7] = right[3];
+        right[3] = temp;
+        temp = bottom[2];
+        bottom[2] = left[8];
+        left[8] = top[6];
+        top[6] = right[0];
+        right[0] = temp;
+        return this;
+    }
+
+    public Cube turnLeftClockwise() {
+        Sticker temp = left[1];
+        left[1] = left[3];
+        left[3] = left[7];
+        left[7] = left[5];
+        left[5] = temp;
+        temp = left[0];
+        left[0] = left[6];
+        left[6] = left[8];
+        left[8] = left[2];
+        left[2] = temp;
+        temp = back[2];
+        back[2] = bottom[6];
+        bottom[6] = front[6];
+        front[6] = top[6];
+        top[6] = temp;
+        temp = back[5];
+        back[5] = bottom[3];
+        bottom[3] = front[3];
+        front[3] = top[3];
+        top[3] = temp;
+        temp = back[8];
+        back[8] = bottom[0];
+        bottom[0] = front[0];
+        front[0] = top[0];
+        top[0] = temp;
+        return this;
+    }
+
+    public Cube turnLeftReverse() {
+        Sticker temp = left[1];
+        left[1] = left[5];
+        left[5] = left[7];
+        left[7] = left[3];
+        left[3] = temp;
+        temp = left[0];
+        left[0] = left[2];
+        left[2] = left[8];
+        left[8] = left[6];
+        left[6] = temp;
+        temp = back[2];
+        back[2] = top[6];
+        top[6] = front[6];
+        front[6] = bottom[6];
+        bottom[6] = temp;
+        temp = back[5];
+        back[5] = top[3];
+        top[3] = front[3];
+        front[3] = bottom[3];
+        bottom[3] = temp;
+        temp = back[8];
+        back[8] = top[0];
+        top[0] = front[0];
+        front[0] = bottom[0];
+        bottom[0] = temp;
+        return this;
+    }
+
+    public Cube turnRightClockwise() {
+        Sticker temp = right[1];
+        right[1] = right[3];
+        right[3] = right[7];
+        right[7] = right[5];
+        right[5] = temp;
+        temp = right[0];
+        right[0] = right[6];
+        right[6] = right[8];
+        right[8] = right[2];
+        right[2] = temp;
+        temp = back[0];
+        back[0] = top[8];
+        top[8] = front[8];
+        front[8] = bottom[8];
+        bottom[8] = temp;
+        temp = back[3];
+        back[3] = top[5];
+        top[5] = front[5];
+        front[5] = bottom[5];
+        bottom[5] = temp;
+        temp = back[6];
+        back[6] = top[2];
+        top[2] = front[2];
+        front[2] = bottom[2];
+        bottom[2] = temp;
+        return this;
+    }
+
+    public Cube turnRightReverse() {
+        Sticker temp = right[1];
+        right[1] = right[5];
+        right[5] = right[7];
+        right[7] = right[3];
+        right[3] = temp;
+        temp = right[0];
+        right[0] = right[2];
+        right[2] = right[8];
+        right[8] = right[6];
+        right[6] = temp;
+        temp = back[0];
+        back[0] = bottom[8];
+        bottom[8] = front[8];
+        front[8] = top[8];
+        top[8] = temp;
+        temp = back[3];
+        back[3] = bottom[5];
+        bottom[5] = front[5];
+        front[5] = top[5];
+        top[5] = temp;
+        temp = back[6];
+        back[6] = bottom[2];
+        bottom[2] = front[2];
+        front[2] = top[2];
+        top[2] = temp;
+        return this;
+    }
+
+    public Cube turnTopClockwise() {
+        Sticker temp = top[1];
+        top[1] = top[3];
+        top[3] = top[7];
+        top[7] = top[5];
+        top[5] = temp;
+        temp = top[0];
+        top[0] = top[6];
+        top[6] = top[8];
+        top[8] = top[2];
+        top[2] = temp;
+        temp = back[0];
+        back[0] = left[0];
+        left[0] = front[0];
+        front[0] = right[0];
+        right[0] = temp;
+        temp = back[1];
+        back[1] = left[1];
+        left[1] = front[1];
+        front[1] = right[1];
+        right[1] = temp;
+        temp = back[2];
+        back[2] = left[2];
+        left[2] = front[2];
+        front[2] = right[2];
+        right[2] = temp;
+        return this;
+    }
+
+    public Cube turnTopReverse() {
+        Sticker temp = top[1];
+        top[1] = top[5];
+        top[5] = top[7];
+        top[7] = top[3];
+        top[3] = temp;
+        temp = top[0];
+        top[0] = top[2];
+        top[2] = top[8];
+        top[8] = top[6];
+        top[6] = temp;
+        temp = back[0];
+        back[0] = right[0];
+        right[0] = front[0];
+        front[0] = left[0];
+        left[0] = temp;
+        temp = back[1];
+        back[1] = right[1];
+        right[1] = front[1];
+        front[1] = left[1];
+        left[1] = temp;
+        temp = back[2];
+        back[2] = right[2];
+        right[2] = front[2];
+        front[2] = left[2];
+        left[2] = temp;
+        return this;
+    }
+
 }
