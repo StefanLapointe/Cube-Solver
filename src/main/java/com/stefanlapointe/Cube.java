@@ -54,6 +54,39 @@ public class Cube {
     }
 
     @Override
+    public boolean equals(Object obj) {
+        if (!(obj instanceof Cube cube)) return false;
+        if (!Arrays.equals(back, cube.back)) return false;
+        if (!Arrays.equals(bottom, cube.bottom)) return false;
+        if (!Arrays.equals(front, cube.front)) return false;
+        if (!Arrays.equals(left, cube.left)) return false;
+        if (!Arrays.equals(right, cube.right)) return false;
+        return Arrays.equals(top, cube.top);
+    }
+
+    /*
+    Technically Cube should be immutable in order for me to override this method.
+    However, for the time being, Cube's mutability won't interfere with the use of this method.
+    This method cally interprets the cube's surface as a 54-digit base-7 number.
+    I chose base-7 since 6 is not coprime with 2, which could have increased the rate of collision.
+    Collision is still very possible since 7^54, and for that matter 6^54,
+    are both far greater than Integer.MAX_VALUE.
+     */
+    @Override
+    public int hashCode() {
+        int total = 0;
+        for (int i = 0; i < 9; i++) {
+            total = 7 * total + back[i].ordinal();
+            total = 7 * total + bottom[i].ordinal();
+            total = 7 * total + front[i].ordinal();
+            total = 7 * total + left[i].ordinal();
+            total = 7 * total + right[i].ordinal();
+            total = 7 * total + top[i].ordinal();
+        }
+        return total;
+    }
+
+    @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
         for (int i = 0; i < 3; i++) {

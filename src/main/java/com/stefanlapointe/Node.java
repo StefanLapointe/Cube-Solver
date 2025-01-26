@@ -9,7 +9,7 @@ public class Node {
     by rotating the bottom face counterclockwise by 90 degrees.
     The parent node of the search tree will have null values for parent and move.
     */
-    private final Cube cube;
+    public final Cube cube;
     public final Node parent;
     public final String move;
     public final int score;

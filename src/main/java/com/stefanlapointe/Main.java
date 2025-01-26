@@ -1,6 +1,6 @@
 package com.stefanlapointe;
 
-import java.util.Scanner;
+import java.util.*;
 import java.util.function.IntFunction;
 
 public class Main {
@@ -47,6 +47,24 @@ public class Main {
         System.out.println("The minimum score is 0, while 48 means fully solved.");
 
         System.out.println("Work in progress...");
+
+        Comparator<Node> nodeComparator = (n1, n2) -> n2.score - n1.score;
+        PriorityQueue<Node> unexpandedNodes = new PriorityQueue<>(nodeComparator);
+        unexpandedNodes.add(new Node(scrambled, null, null));
+        Set<Cube> visitedCubes = new HashSet<>();
+
+        for (int i = 0; i < 1000000; i++) {
+            Node bestNode = unexpandedNodes.remove();
+            if (visitedCubes.contains(bestNode.cube)) continue;
+            visitedCubes.add(bestNode.cube);
+            System.out.println(bestNode.score);
+            if (bestNode.score == 48) {
+                System.out.println("Solution: " + bestNode.path());
+                return;
+            }
+            unexpandedNodes.addAll(Arrays.asList(bestNode.children()));
+        }
+        System.out.println("No solution found within iteration limit.");
 
     }
 
