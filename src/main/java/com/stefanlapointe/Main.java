@@ -48,19 +48,25 @@ public class Main {
 
         System.out.println("Work in progress...");
 
-        Comparator<Node> nodeComparator = (n1, n2) -> n2.score - n1.score;
+        // Multiplying the scores by 2 helps the algorithm not worry *too much* about solution length.
+        Comparator<Node> nodeComparator = (n1, n2) -> (2 * n2.score - n2.depth) - (2 * n1.score - n1.depth);
         PriorityQueue<Node> unexpandedNodes = new PriorityQueue<>(nodeComparator);
-        unexpandedNodes.add(new Node(scrambled, null, null));
+        unexpandedNodes.add(new Node(scrambled, null, null, 0));
         Set<Cube> visitedCubes = new HashSet<>();
+
+        int bestScore = scrambled.score();
 
         for (int i = 0; i < 1000000; i++) {
             Node bestNode = unexpandedNodes.remove();
             if (visitedCubes.contains(bestNode.cube)) continue;
             visitedCubes.add(bestNode.cube);
-            System.out.println(bestNode.score);
             if (bestNode.score == 48) {
                 System.out.println("Solution: " + bestNode.path());
                 return;
+            }
+            if (bestNode.score > bestScore) {
+                bestScore = bestNode.score;
+                System.out.println("Current best score: " + bestScore + "/48 (" + i + " iterations, " + bestNode.depth + " moves)");
             }
             unexpandedNodes.addAll(Arrays.asList(bestNode.children()));
         }
