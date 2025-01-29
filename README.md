@@ -6,7 +6,7 @@ Cube-Solver is a command line program to help you solve a Rubik's cube written i
 
 If you open this project as an IntelliJ IDEA project, you can just click the Run button on build/classes/java/main/com/stefanlapointe/Main.java in order to compile and run the program. Alternatively, you can use the Gradle build and run tasks. Once you run the program, you will be asked to input the colours of the stickers in a specific order, and you will (hopefully) be given a solution in standard 3x3 Rubik's cube notation as a result.
 
-Here's some example input and output (use gradle.bat instead if you are using Windows):
+Here's some example input and output:
 ```
 You will be asked to enter the colour of each sticker one face at a time.
 Please enter the colours for each face in rows, going left-to-right, top-to-bottom.
