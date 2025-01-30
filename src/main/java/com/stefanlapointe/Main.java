@@ -29,14 +29,19 @@ public class Main {
 
         System.out.print("Please enter the back face: ");
         Sticker[] back = scanner.nextLine().chars().mapToObj(toSticker).toArray(Sticker[]::new);
+        System.out.flush();
         System.out.print("Please enter the bottom face: ");
         Sticker[] bottom = scanner.nextLine().chars().mapToObj(toSticker).toArray(Sticker[]::new);
+        System.out.flush();
         System.out.print("Please enter the front face: ");
         Sticker[] front = scanner.nextLine().chars().mapToObj(toSticker).toArray(Sticker[]::new);
+        System.out.flush();
         System.out.print("Please enter the left face: ");
         Sticker[] left = scanner.nextLine().chars().mapToObj(toSticker).toArray(Sticker[]::new);
+        System.out.flush();
         System.out.print("Please enter the right face: ");
         Sticker[] right = scanner.nextLine().chars().mapToObj(toSticker).toArray(Sticker[]::new);
+        System.out.flush();
         System.out.print("Please enter the top face: ");
         Sticker[] top = scanner.nextLine().chars().mapToObj(toSticker).toArray(Sticker[]::new);
 
